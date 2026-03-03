@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Developer | Divij Kathuria Techmech</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    body { background-color: #fff6ed; }
+    .page {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 1rem;
+      position: relative;
+    }
+
+    /* Back button fixed in-view */
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: -120px;           
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      background: #fff;
+      color: #444;
+      transition: all 0.3s ease;
+    }
+    .back-button:hover {
+      transform: translateX(-3px);
+      background-color: #ffe5cc;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .header h2 {
+      margin: 0;
+      font-size: 2rem;
+      color: rgb(109,67,0);
+    }
+    .header p {
+      font-style: bold;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+
+    .banner {
+      display: block;
+      width: 20%;
+      max-width: 600px;
+      margin: 2rem auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+
+    /* Make grid two columns on wide view and single on small screens */
+    .features {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr; /* mobile default */
+      margin-top: 1.5rem;
+    }
+    @media (min-width: 600px) {
+      .features {
+        grid-template-columns: 1fr 1fr; /* two columns on desktop */
+      }
+    }
+
+    .feature {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: 0.3s;
+      cursor: default;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 120px; /* keeps cards visually similar height */
+    }
+    .feature:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      background-color: #fdf6ee;
+    }
+    .feature strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: rgb(109,67,0);
+    }
+
+    .visit-site {
+      display: inline-block;
+      margin: 2rem auto;
+      padding: 0.75rem 1.5rem;
+      background-color: #6d4300;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.2s ease;
+    }
+    .visit-site:hover {
+      background-color: #502f00;
+    }
+    
+    .visit-wrapper {
+      text-align: center;
+    }
+
+    /* ===== Image modal ===== */
+    .img-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+    .img-modal[aria-hidden="false"] { display:flex; }
+
+    .img-modal-content {
+      position: relative;
+      max-width: 95%;
+      max-height: 95%;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem;
+    }
+    .img-modal-content img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+      border-radius: 6px;
+    }
+    .img-modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(255,255,255,0.95);
+      border: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .img-modal-close:hover { transform: scale(1.05); background: #fff; }
+
+    @media (max-width: 640px) {
+      .banner { width: 50%; }
+      .back-button { left: 8px; top: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container" style="justify-content: center; gap: 4rem;">
+      <div class="logo" data-aos="zoom-in"><span></span></div>
+      <div class="links" style="display: flex; gap: 3rem; align-items: center;">
+        <a href="index.html">Home</a>
+        <a href="Achievements.html">Achievements</a>
+        <a href="skills.html">Skills</a>
+        <a href="Coursework.html">Coursework</a>
+        <a href="projects.html">Projects</a>
+        <a href="Experience.html">Experience</a>
+      </div>
+      <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+    </div>
+    <div class="dropdown">
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="Achievements.html">Achievements</a>
+        <a href="skills.html">Skills</a>
+        <a href="Coursework.html">Coursework</a>
+        <a href="projects.html">Projects</a>
+        <a href="Experience.html">Experience</a>
+        <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page" data-aos="fade-up">
+    <a href="Experience.html" class="back-button">← Back to Experience</a>
+
+    <div class="header" data-aos="fade-down">
+      <h2>Web Developer @ Kathuria Techmech Pvt. Ltd.</h2>
+      <p>Jun 2025 – Aug 2025 | HTML, CSS, JavaScript, WordPress</p>
+    </div>
+
+    <!-- clickable banner (single instance) -->
+    <img
+      id="clickable-banner"
+      class="banner"
+      src="media/kathuria-homepage.png"
+      alt="Kathuria Techmech Homepage"
+      role="button"
+      aria-haspopup="dialog"
+      data-aos="zoom-in"
+    />
+
+    <!-- ===== fixed features grid (correct nesting) ===== -->
+    <div class="features">
+      <div class="feature" data-aos="fade-up">
+        <strong>Digital Brand Revamp</strong>
+        Collaborated in the UX-driven redesign and implemented an interactive hero carousel that modernized the site and increased first-visit engagement by ~35%.
+      </div>
+
+      <div class="feature" data-aos="fade-up" data-aos-delay="100">
+        <strong>Business Scale & Impact</strong>
+        Supported the digital presence of a family-run engineering firm generating ≈ $4M in annual revenue — improving lead capture and discoverability across product lines.
+      </div>
+
+      <div class="feature" data-aos="fade-up" data-aos-delay="200">
+        <strong>Product Navigation & Discovery</strong>
+        Built a multi-level, searchable product taxonomy for 20+ engineering product lines, cutting average search time in half and boosting product page views.
+      </div>
+
+      <div class="feature" data-aos="fade-up" data-aos-delay="300">
+        <strong>Performance & SEO Optimization</strong>
+        Improved page speed and user experience by ~30% through image lazy-loading, asset minification, and technical SEO tweaks — delivering measurable visibility gains.
+      </div>
+    </div>
+
+    <div class="visit-wrapper" data-aos="fade-up" data-aos-delay="400">
+      <a href="https://kathuriatechmech.com/" target="_blank" class="visit-site">View Live Website →</a>
+    </div>
+  </div>
+
+  <!-- Image modal (shared component) -->
+  <div id="imageModal" class="img-modal" aria-hidden="true" role="dialog" aria-label="Image preview">
+    <div class="img-modal-content" role="document">
+      <button id="modalCloseBtn" class="img-modal-close" aria-label="Close preview">×</button>
+      <img id="modalImage" src="" alt="Expanded preview" />
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true });
+
+    // modal elements
+    const banner = document.getElementById('clickable-banner');
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.getElementById('modalCloseBtn');
+
+    function openImageModal(src, alt) {
+      modalImg.src = src;
+      modalImg.alt = alt || 'Image preview';
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => closeBtn.focus(), 50);
+    }
+
+    function closeImageModal() {
+      modal.setAttribute('aria-hidden', 'true');
+      modalImg.src = '';
+      document.body.style.overflow = '';
+    }
+
+    if (banner) {
+      banner.addEventListener('click', () => {
+        // if filename has spaces / special chars it *may* not load correctly in some environments;
+        // rename the file locally to a simple name (kathuria-homepage.png) if you see issues.
+        openImageModal(banner.src, banner.alt);
+      });
+    }
+
+    closeBtn.addEventListener('click', closeImageModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeImageModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeImageModal(); });
+
+    function hamburg() { document.querySelector(".dropdown").style.transform = "translateY(0)"; }
+    function cancel()  { document.querySelector(".dropdown").style.transform = "translateY(-500px)"; }
+  </script>
+</body>
+</html>

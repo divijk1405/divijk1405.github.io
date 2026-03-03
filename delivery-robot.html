@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Robotics Intern | Supros Delivery Robot</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    body { background-color: #fff6ed; }
+    .page {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+      position: relative;
+    }
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: -200px;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      background: #fff;
+      color: #444;
+      transition: all 0.3s ease;
+    }
+    .back-button:hover {
+      transform: translateX(-3px);
+      background-color: #ffe5cc;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .header h2 {
+      margin: 0;
+      font-size: 2rem;
+      color: rgb(109,67,0);
+    }
+    .header p {
+      font-style: bold;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+
+    /* Banner (clickable) */
+    .banner {
+      display: block;
+      width: 20%;
+      max-width: 600px;
+      margin: 2rem auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      cursor: pointer; /* makes it clear it's clickable */
+    }
+
+    .features {
+      display: grid;
+      gap: 1rem;
+    }
+    @media (min-width: 600px) {
+      .features {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .feature {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: 0.3s;
+      cursor: default;
+    }
+    .feature:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      background-color: #fdf6ee;
+    }
+    .feature strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: rgb(109,67,0);
+    }
+
+    .visit-wrapper {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .visit-site {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: #6d4300;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.2s ease;
+    }
+    .visit-site:hover {
+      background-color: #502f00;
+    }
+
+    /* ===== Image modal styles ===== */
+    .img-modal {
+      display: none; /* hidden by default */
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      transition: opacity 180ms ease;
+    }
+    .img-modal[aria-hidden="false"] {
+      display: flex;
+    }
+    .img-modal-content {
+      position: relative;
+      max-width: 95%;
+      max-height: 95%;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem;
+    }
+    .img-modal-content img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+      border-radius: 6px;
+    }
+    .img-modal-close {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(255,255,255,0.95);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .img-modal-close:hover { background: rgba(255,255,255,1); transform: scale(1.05); }
+
+    /* small-screen improvements */
+    @media (max-width: 640px) {
+      .banner { width: 50%; }
+      .back-button { left: 8px; top: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container" style="justify-content: center; gap: 4rem;">
+      <div class="logo" data-aos="zoom-in"><span></span></div>
+      <div class="links" style="display:flex; gap:3rem; align-items:center;">
+        <a href="index.html">Home</a>
+        <a href="Achievements.html">Achievements</a>
+        <a href="skills.html">Skills</a>
+        <a href="Coursework.html">Coursework</a>
+        <a href="projects.html">Projects</a>
+        <a href="Experience.html">Experience</a>
+      </div>
+      <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+    </div>
+    <div class="dropdown">
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="Achievements.html">Achievements</a>
+        <a href="skills.html">Skills</a>
+        <a href="Coursework.html">Coursework</a>
+        <a href="projects.html">Projects</a>
+        <a href="Experience.html">Experience</a>
+        <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page" data-aos="fade-up">
+    <a href="Experience.html" class="back-button">← Back to Experience</a>
+
+    <div class="header" data-aos="fade-down">
+      <h2>Robotics Intern @ Supros</h2>
+      <p>May 2022 – Jul 2022 | Raspberry Pi, Python</p>
+    </div>
+
+    <!-- Banner image (click opens modal) -->
+    <img
+      src="media/AutonomousDeliveryRobotPrototype.png"
+      alt="Autonomous Delivery Robot Prototype"
+      class="banner"
+      data-aos="zoom-in"
+      id="clickable-banner"
+      role="button"
+      aria-haspopup="dialog"
+    />
+
+    <div class="features">
+      <div class="feature" data-aos="fade-up">
+        <strong>Sensor-Driven Navigation</strong>
+        Integrated advanced sensors and traction control to optimize real-time navigation—reducing transmission risks and cutting delivery costs by 25%.
+      </div>
+      <div class="feature" data-aos="fade-up" data-aos-delay="100">
+        <strong>Wooden Chassis Innovation</strong>
+        Engineered a lightweight wooden frame (5% lighter than metal) to improve energy efficiency while maintaining structural integrity.
+      </div>
+      <div class="feature" data-aos="fade-up" data-aos-delay="200">
+        <strong>App-Based Tracking</strong>
+        Collaborated with software team to build a real-time monitoring app, achieving a 30% reduction in delivery times and improved safety.
+      </div>
+      <div class="feature" data-aos="fade-up" data-aos-delay="300">
+        <strong>Optimized Storage System</strong>
+        Developed Python-controlled routines for compartmentalized item placement & retrieval—minimizing unnecessary movement and speeding up operations.
+      </div>
+    </div>
+
+    <div class="visit-wrapper" data-aos="fade-up" data-aos-delay="400">
+      <a href="#" class="visit-site">Download Full Report →</a>
+    </div>
+  </div>
+
+  <!-- Image modal -->
+  <div id="imageModal" class="img-modal" aria-hidden="true" role="dialog" aria-label="Image preview">
+    <div class="img-modal-content" role="document">
+      <button class="img-modal-close" aria-label="Close image preview" id="modalCloseBtn">×</button>
+      <img id="modalImage" src="" alt="Expanded preview" />
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true });
+
+    // modal references
+    const banner = document.getElementById('clickable-banner');
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.getElementById('modalCloseBtn');
+
+    // helper: open modal and set image src
+    function openImageModal(src, alt) {
+      modalImg.src = src;
+      modalImg.alt = alt || 'Expanded image';
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden'; // prevent background scroll
+      // focus the close button for accessibility
+      setTimeout(() => closeBtn.focus(), 100);
+    }
+
+    function closeImageModal() {
+      modal.setAttribute('aria-hidden', 'true');
+      // clear src to release memory (optional)
+      modalImg.src = '';
+      document.body.style.overflow = '';
+    }
+
+    // open when clicking the banner
+    banner && banner.addEventListener('click', () => {
+      // use the banner's src (this keeps it simple and robust)
+      openImageModal(banner.src, banner.alt);
+    });
+
+    // close handlers
+    closeBtn.addEventListener('click', closeImageModal);
+
+    // close if user clicks the overlay (but not when clicking the image)
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeImageModal();
+    });
+
+    // close on escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
+        closeImageModal();
+      }
+    });
+
+    // keep original dropdown nav functions
+    function hamburg() { document.querySelector(".dropdown").style.transform = "translateY(0)"; }
+    function cancel()  { document.querySelector(".dropdown").style.transform = "translateY(-500px)"; }
+  </script>
+</body>
+</html>

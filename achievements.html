@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Achievements | Divij Kathuria</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    body {
+      background-color: #fff6ed;
+    }
+    .achievements-section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      background-color: transparent;
+      text-align: center;
+    }
+    .achievements-header h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .achievements-header p {
+      color: #555;
+      font-style: bold;
+      margin-bottom: 2rem;
+    }
+
+    
+    .achievements-grid-wrapper {
+      position: relative;
+    }
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    @media(min-width:700px) {
+      .achievements-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .achievement-card {
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: left;
+    }
+    .achievement-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(109,67,0,0.3);
+      background-color: #fdf6ee;
+    }
+    .achievement-card h3 {
+      margin-top: 0;
+      color: #6d4300;
+    }
+    .achievement-card ul {
+      margin-top: 0.5rem;
+      padding-left: 1.2rem;
+    }
+    .achievement-card ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Floating LVIS image */
+    .lvis-animated {
+      position: absolute;
+      top: 70px;
+      left: -120px;       
+      width: 100px;
+      z-index: 10;
+      animation: float 3s ease-in-out infinite;
+    }
+    .mun-animated {
+      position: absolute;
+      top: 330px;       
+      left: -120px;
+      width: 100px;
+      z-index: 10;
+      animation: float 4s ease-in-out infinite;
+      animation-delay: 0.5s;
+    }
+   
+.badminton-animated {
+  position: absolute;
+  top: 70px;      
+  right: -120px;    
+  width: 100px;
+  z-index: 10;
+  animation: float 3.5s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50%     { transform: translateY(-15px); }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container" style="justify-content: center; gap: 4rem;">
+      <div class="logo"><span></span></div>
+      <div class="links" style="display: flex; gap: 3rem; align-items: center;">
+        <a href="index.html">Home</a>
+        <a href="Achievements.html">Achievements</a>
+        <a href="skills.html">Skills</a>
+        <a href="Coursework.html">Coursework</a>
+        <a href="projects.html">Projects</a>
+        <a href="experience.html">Experience</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="achievements-section" data-aos="fade-up">
+    <div class="achievements-header" data-aos="fade-down">
+      <h2>Achievements</h2>
+      <p>Highlights of leadership, sports excellence, and global engagement.</p>
+    </div>
+
+    <div class="achievements-grid-wrapper">
+     
+      <img src="media/lvis.png" alt="Science & Tech Club Logo" class="lvis-animated" data-aos="zoom-in" data-aos-delay="200" />
+      <img src="media/MUN.png.jpg" alt="Model UN Logo"class="mun-animated" data-aos="zoom-in" data-aos-delay="300" />
+      <img src="media/badminton.png.jpeg"alt="Badminton Icon"class="badminton-animated"data-aos="zoom-in"data-aos-delay="400"
+  />
+      <div class="achievements-grid">
+        <div class="achievement-card" data-aos="fade-up">
+          <h3>President, Science & Tech Club</h3>
+          <ul>
+            <li>Mentored 60+ aspiring scientists, increasing STEM competition participation by 20% through hackathons and workshops.</li>
+            <li>Coordinated bi-monthly presentations, boosting club meeting attendance by 30%.</li>
+          </ul>
+        </div>
+        <div class="achievement-card" data-aos="fade-up" data-aos-delay="100">
+          <h3>Badminton Player</h3>
+          <ul>
+            <li>State-level competitor with multiple tournament wins.</li>
+            <li>Madison Open 2022: Men’s singles champion.</li>
+            <li>UW–Madison Intramurals Fall ’23: Men’s singles winner.</li>
+          </ul>
+        </div>
+        <div class="achievement-card" data-aos="fade-up" data-aos-delay="200">
+          <h3>Model United Nations Delegate</h3>
+          <ul>
+            <li>High Commendation: Discours De Fierté MUN 2.0</li>
+            <li>Honourable Mention: REPUBLICA MUN 2.0</li>
+            <li>Multiple awards in All-India and international MUN conferences.</li>
+          </ul>
+        </div>
+        <div class="achievement-card" data-aos="fade-up" data-aos-delay="300">
+          <h3>Certificate of Recognition — AMAN</h3>
+          <p>
+            I received a Certificate of Recognition from AMAN on March 28, 2023 for outstanding
+            dedication and creativity in designing and managing social-media content for event campaigns.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({ offset: 100 });
+  </script>
+</body>
+</html>

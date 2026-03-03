@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Relevant Coursework | Divij Kathuria</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    body {
+      background-color: #fff6ed;
+    }
+
+    .coursework-section {
+      background: transparent;
+      margin-top: 2rem;
+      padding: 2rem;
+      max-width: 1500px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      position: relative;
+    }
+
+    .coursework-header h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .coursework-header p {
+      color: #555;
+      font-style: bold;
+      margin-bottom: 1.5rem;
+    }
+    .category {
+      margin-bottom: 1.5rem;
+    }
+    .category h3 {
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0.75rem;
+    }
+    .course-card {
+      background-color: #fff;
+      padding: 0.6rem 0.8rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .course-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(109,67,0,0.25);
+      background-color: #fdf6ee;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      max-width: 500px;
+      width: 90%;
+      text-align: left;
+      position: relative;
+      font-size: 0.9rem;
+    }
+    .modal-close {
+      position: absolute;
+      top: 8px; right: 8px;
+      background: transparent;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    @media (max-width: 600px) {
+      .coursework-section {
+        padding: 1rem 0.5rem;
+        margin-top: -1rem;
+      }
+    }
+
+    .uw-footer {
+      text-align: center;
+            margin: 3rem 0 2rem;
+    }
+    .uw-footer img {
+      width: 80px;
+      margin-top: -20px;
+      animation: pulse 3.0s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50%      { transform: scale(1.1); opacity: 0.8; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container" style="justify-content: center; gap: 4rem;">
+      <div class="logo" data-aos="zoom-in"><span></span></div>
+      <div class="links" style="display: flex; gap: 3rem; align-items: center;">
+        <a href="index.html">Home</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="skills.html">Skills</a>
+        <a href="Coursework.html" class="active">Coursework</a>
+        <a href="projects.html">Projects</a>
+        <a href="experience.html">Experience</a>
+      </div>
+      <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+    </div>
+    <div class="dropdown">
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="skills.html">Skills</a>
+        <a href="Coursework.html">Coursework</a>
+        <a href="projects.html">Projects</a>
+        <a href="experience.html">Experience</a>
+        <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+      </div>
+    </div>
+  </nav>
+
+  <section class="coursework-section">
+    <div class="coursework-header" data-aos="fade-down">
+      <h2>Relevant Coursework</h2>
+      <p>Core classes that shaped my foundation in computer science and quantitative analysis.</p>
+    </div>
+
+   
+    <div class="category" data-aos="fade-up">
+      <h3>Computer Science Core</h3>
+      <div class="courses-grid">
+        <div class="course-card" data-course="COMPSCI200">COMPSCI200: Programming I (001) FA22</div>
+        <div class="course-card" data-course="COMPSCI300">COMPSCI300: Programming II</div>
+        <div class="course-card" data-course="COMPSCI400">COMPSCI400: Programming III</div>
+        <div class="course-card" data-course="COMPSCI571">COMPSCI571: Building User Interfaces</div>
+        <div class="course-card" data-course="COMPSCI577">COMPSCI577: Introduction to Algorithms</div>
+        <div class="course-card" data-course="COMPSCI407">COMPSCI407: Foundations of Mobile Systems and Application</div>
+        <div class="course-card" data-course="COMPSCI570">COMPSCI570: Introduction to Human-Computer Interaction</div>
+        <div class="course-card" data-course="ECE539">ECE539: Introduction to Artificial Neural Networks</div>
+      </div>
+    </div>
+
+    <div class="category" data-aos="fade-up" data-aos-delay="100">
+      <h3>Mathematics & Data Analysis</h3>
+      <div class="courses-grid">
+        <div class="course-card" data-course="MATH221">MATH221: Calculus and Analytic Geometry I</div>
+        <div class="course-card" data-course="MATH340">MATH340: Elementary Matrix and Linear Algebra</div>
+        <div class="course-card" data-course="MATH234">MATH234: Discrete Mathematics</div>
+        <div class="course-card" data-course="STAT240">STAT240: Data Science Modeling I</div>
+      </div>
+    </div>
+
+
+    <div class="category" data-aos="fade-up" data-aos-delay="200">
+      <h3>Industrial & Economic Foundations</h3>
+      <div class="courses-grid">
+        <div class="course-card" data-course="ISYE191">ISYE191: The Practice of Industrial Engineering</div>
+        <div class="course-card" data-course="ECON101">ECON101: Principles of Microeconomics</div>
+        <div class="course-card" data-course="OTM452">OTM452: Project Management</div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="uw-footer" data-aos="fade-up">
+    <img src="media/uwfinal.jpeg" alt="University of Wisconsin–Madison Logo" />
+  </div>
+
+  
+  <div id="courseModal" class="modal">
+    <div class="modal-content" data-aos="fade-in">
+      <button class="modal-close">×</button>
+      <h3 id="modalTitle"></h3>
+      <p id="modalBody">Course details go here.</p>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({ offset: 100 });
+
+  
+    const courseDetails = {
+      COMPSCI200: "Programming fundamentals in C++, covering loops, functions, and data structures.",
+      COMPSCI300: "Advanced programming with object-oriented design and software engineering principles.",
+      COMPSCI400: "Data structures and algorithms analysis including trees, graphs, and hashing.",
+      COMPSCI571: "Hands-on UI building using React and modern JavaScript frameworks.",
+      COMPSCI577: "Algorithmic strategies: sorting, searching, dynamic programming and complexity analysis.",
+      COMPSCI407: "Mobile systems architecture and native app development principles.",
+      COMPSCI570: "Human-computer interaction theories and UI/UX prototyping techniques.",
+      ECE539: "Neural network architectures, backpropagation, and deep learning fundamentals.",
+      MATH221: "Limits, derivatives, and integrals of single-variable functions.",
+      MATH340: "Matrix operations, vector spaces, eigenvalues, and linear transformations.",
+      MATH234: "Fundamental discrete math: logic (propositional & predicate), set theory, relations (including partial orders) & functions; basic structures (integers, bits, strings, trees, graphs); proof techniques (induction, invariants, recursion); solving recurrences & analyzing asymptotic growth; and elementary counting principles.",
+      STAT240: "Statistical modeling using regression, classification, and validation in R.",
+      ISYE191: "Industrial engineering practice: process modeling, optimization and simulation.",
+      ECON101: "Microeconomic principles: supply & demand, market equilibrium, and utility theory.",
+      OTM452: "Project planning, risk management, and resource allocation strategies."
+    };
+
+ 
+    const modal      = document.getElementById('courseModal');
+    const titleEl    = document.getElementById('modalTitle');
+    const bodyEl     = document.getElementById('modalBody');
+    document.querySelectorAll('.course-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const code = card.dataset.course;
+        titleEl.textContent = code;
+        bodyEl.textContent  = courseDetails[code] || "Details coming soon.";
+        modal.style.display = 'flex';
+      });
+    });
+    document.querySelector('.modal-close').addEventListener('click', () => modal.style.display = 'none');
+    modal.addEventListener('click', e => { if(e.target===modal) modal.style.display='none'; });
+
+   
+    function hamburg(){ document.querySelector('.dropdown').style.transform='translateY(0)'; }
+    function cancel(){ document.querySelector('.dropdown').style.transform='translateY(-500px)'; }
+  </script>
+</body>
+</html>

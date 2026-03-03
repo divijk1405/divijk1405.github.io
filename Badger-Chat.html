@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Badger Chat App | Divij Kathuria</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    body {
+      background-color: #fff6ed;
+    }
+    .project-section {
+      gap: 2rem;
+      padding: 2rem 2rem;
+      margin: 0 auto;
+      position: relative;
+      background: transparent;
+    }
+    .back-button {
+      position: absolute;
+      top:30px;
+      left: 20px;
+      
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      color: #444;
+      transition: all 0.3s ease;
+    }
+    .back-button:hover {
+      transform: translateX(-5px);
+      background-color: #ffe5cc;
+    }
+    .project-header {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .project-header h2 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    .project-header p {
+      font-style: bold;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+    .project-video {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .project-video video {
+      max-width: 35%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+    .feature-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    @media(min-width:600px) {
+      .feature-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .interactive-box {
+      background-color: #fff;
+      padding: 1.2rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+    .interactive-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      background-color: #fdf6ee;
+    }
+    .interactive-box.active {
+      background-color: #fff3e6;
+      border: 2px solid #d28500;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container" style="justify-content: center; gap: 4rem;">
+      <div class="logo"><span></span></div>
+      <div class="links" style="display: flex; gap: 3rem; align-items: center;">
+        <a href="index.html">Home</a>
+        <a href="Achievements.html">Achievements</a>
+        <a href="skills.html">Skills</a>
+        <a href="Coursework.html">Coursework</a>
+        <a href="projects.html">Projects</a>
+        <a href="Experience.html">Experience</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="project-section" data-aos="fade-up">
+    <a href="projects.html" class="back-button">⬅ Back to Projects</a>
+
+    <div class="project-header" data-aos="fade-down">
+      <h2>Badger Chat Mobile Application</h2>
+      <p>Completed: December 2024 | Technologies: JavaScript, CSS, HTML, Wit.ai, React, Postman</p>
+    </div>
+
+    <div class="project-video" data-aos="fade-right">
+      <video controls>
+        <source src="media/ScreenRecording.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <div class="feature-container">
+      <div class="interactive-box" onclick="this.classList.toggle('active')" data-aos="fade-up">
+        <strong>Increased Engagement:</strong> Increased user engagement by 30% by developing a conversational chat application powered by Wit.ai for dynamic intent recognition across 8 unique intents.
+      </div>
+      <div class="interactive-box" onclick="this.classList.toggle('active')" data-aos="fade-up" data-aos-delay="100">
+        <strong>Multi-Chatrooms:</strong> Engineered 7+ chatrooms supporting keyword-based lookups and free-text matching, improving message retrieval speed by 40%.
+      </div>
+      <div class="interactive-box" onclick="this.classList.toggle('active')" data-aos="fade-up" data-aos-delay="200">
+        <strong>Data Integrity:</strong> Strengthened data integrity and user experience by mitigating data sensitivity risks, implementing robust error handling, and ensuring real-time response capabilities to enhance engagement metrics.
+      </div>
+      <div class="interactive-box" onclick="this.classList.toggle('active')" data-aos="fade-up" data-aos-delay="300">
+        <strong>Performance Optimization:</strong> Optimized performance by utilizing modularized components, reusable code, and efficient backend integration, adhering to modern development workflows for maintainability and scalability.
+      </div>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true });
+  </script>
+</body>
+</html>

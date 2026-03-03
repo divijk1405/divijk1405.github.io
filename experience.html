@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experience | Divij Kathuria</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    body {
+      background-color: #fff6ed;
+    }
+
+    .experience-section {
+      padding: 3rem 1rem;
+      background-color: transparent;
+      text-align: center;
+    }
+    .experience-section h2 {
+      margin-bottom: 0.5rem;
+    }
+    .experience-section p.intro {
+      max-width: 800px;
+      margin: 0.5rem auto 2rem;
+      color: #555;
+      font-style: bold;
+      line-height: 1.4;
+    }
+
+  
+    .experiences-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto 2rem;
+    }
+
+    /* —— Card Styling —— */
+    .experience-card {
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+    .experience-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(109,67,0,0.3);
+      background-color: #fdf6ee;
+    }
+    .experience-card h3 {
+      margin-top: 0;
+      color: rgb(109,67,0);
+    }
+    .experience-card .date {
+      font-size: 0.9rem;
+      color: #555;
+      margin: 0.25rem 0 1rem;
+      display: block;
+    }
+
+
+    .view-more-experience {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #6d4300;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.2s ease;
+    }
+    .view-more-experience:hover {
+      background-color: #502f00;
+    }
+
+    @media (max-width: 600px) {
+      .experience-section {
+        padding: 2rem 0.5rem;
+      }
+      .experience-section p.intro {
+        padding: 0 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container" style="justify-content: center; gap: 4rem;">
+      <div class="logo" data-aos="zoom-in"><span></span></div>
+      <div class="links" style="display: flex; gap: 3rem; align-items: center;">
+        <div class="link" data-aos="fade-up" data-aos-duration="100">
+          <a href="index.html">Home</a>
+        </div>
+        <div class="link" data-aos="fade-up" data-aos-duration="200">
+          <a href="Achievements.html">Achievements</a>
+        </div>
+        <div class="link" data-aos="fade-up" data-aos-duration="300">
+          <a href="skills.html">Skills</a>
+        </div>
+        <div class="link" data-aos="fade-up" data-aos-duration="400">
+          <a href="Coursework.html">Coursework</a>
+        </div>
+        <div class="link" data-aos="fade-up" data-aos-duration="500">
+          <a href="projects.html">Projects</a>
+        </div>
+        <div class="link" data-aos="fade-up" data-aos-duration="600">
+          <a href="Experience.html">Experience</a>
+        </div>
+      </div>
+      <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+    </div>
+
+    <div class="dropdown">
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="Achievements.html">Achievements</a>
+        <a href="skills.html">Skills</a>
+        <a href="Coursework.html">Coursework</a>
+        <a href="projects.html">Projects</a>
+        <a href="Experience.html">Experience</a>
+        <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+      </div>
+    </div>
+  </nav>
+
+  <section class="experience-section">
+    <h2 data-aos="fade-down">Experience</h2>
+    <p class="intro" data-aos="fade-up">
+      Here are some of my key professional roles—click any card to learn more.
+    </p>
+
+    <div class="experiences-container">
+
+      <div class="experience-card" data-aos="fade-up" data-aos-duration="800">
+        <a href="kathuriatechmech.html" style="text-decoration:none; color:inherit;">
+          <h3>Web Developer @ Kathuria Techmech Pvt. Ltd.</h3>
+          <span class="date">Jun 2025 – Aug 2025</span>
+          <p>At our family-owned mechanical engineering firm, I teamed up with my father to spearhead a software-driven web presence. 
+            After defining site architecture and UX strategy, I collaborated with a four-person team to build and launch the Kathuria Techmech site using HTML, CSS, JavaScript & WordPress.
+    </p>
+        </a>
+      </div>
+
+      <div class="experience-card" data-aos="fade-up" data-aos-duration="1000">
+        <a href="flutter.html" style="text-decoration:none; color:inherit;">
+          <h3>Mobile App Developer Intern @ SkyFiLabs</h3>
+          <span class="date">May 2023 - Jul 2023</span>
+          <p>Led the development of a task management app in Flutter with Firebase integration,
+            optimizing performance by 30% and reducing crash rates with structured testing.</p>
+        </a>
+      </div>
+      <div class="experience-card" data-aos="fade-up" data-aos-duration="1000">
+        <a href="delivery-robot.html" style="text-decoration:none; color:inherit;">
+          <h3>Robotics Intern @ Supros</h3>
+          <span class="date">May 2022 - Jul 2022</span>
+          <p> Created an autonomous delivery robot using Raspberry Pi and Python, reducing operational
+            costs by 25% and contributing to agile sprint planning and testing.</p>
+        </a>
+        
+      </div>
+
+     
+    </div>
+    <div class="arrow-instruction" data-aos="fade-up" data-aos-delay="200">
+      <span class="arrow">↑</span>
+      Click a box to view details
+    </div>
+    
+  </section>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    function hamburg() {
+      document.querySelector(".dropdown").style.transform = "translateY(0)";
+    }
+    function cancel() {
+      document.querySelector(".dropdown").style.transform = "translateY(-500px)";
+    }
+    AOS.init({ offset: 100 });
+  </script>
+</body>
+</html>

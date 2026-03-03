@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flutter Notes App | Divij Kathuria</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    body { background-color: #fff6ed; }
+    .page {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+      position: relative;
+    }
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: -200px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      background: #fff;
+      color: #444;
+      transition: all 0.3s ease;
+    }
+    .back-button:hover {
+      transform: translateX(-3px);
+      background-color: #ffe5cc;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .header h2 {
+      margin: 0;
+      font-size: 2rem;
+      color: rgb(109,67,0);
+    }
+    .header p {
+      font-style: bold;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+    .features {
+      display: grid;
+      gap: 1rem;
+    }
+    @media (min-width: 600px) {
+      .features { grid-template-columns: 1fr 1fr; }
+    }
+    .feature {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: 0.3s;
+      cursor: default;
+    }
+    .experience-details-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem 0;
+    }
+
+    .experience-video video {
+      max-width: 350px;
+      width: 50%;
+      border-radius: 10px;
+      margin-left: 110px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      background: white;
+    }
+    .interactive-box {
+      background-color: #fff;
+      padding: 1.2rem 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+    .interactive-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      background-color: #fdf6ee;
+    }
+    .interactive-box.active {
+      background-color: #fff3e6;
+      border: 2px solid #d28500;
+    }
+    .feature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  background-color: #fdf6ee;
+}
+    .feature strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: rgb(109,67,0);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container" style="justify-content: center; gap: 4rem;">
+        <div class="logo" data-aos="zoom-in"><span></span></div>
+        <div class="links" style="display: flex; gap: 3rem; align-items: center;">
+          <div class="link" data-aos="fade-up" data-aos-duration="100">
+            <a href="index.html">Home</a>
+          </div>
+          <div class="link" data-aos="fade-up" data-aos-duration="200">
+            <a href="Achievements.html">Achievements</a>
+          </div>
+          <div class="link" data-aos="fade-up" data-aos-duration="300">
+            <a href="skills.html">Skills</a>
+          </div>
+          <div class="link" data-aos="fade-up" data-aos-duration="400">
+            <a href="Coursework.html">Coursework</a>
+          </div>
+          <div class="link" data-aos="fade-up" data-aos-duration="500">
+            <a href="projects.html">Projects</a>
+          </div>
+          <div class="link" data-aos="fade-up" data-aos-duration="600">
+            <a href="Experience.html">Experience</a>
+          </div>
+        </div>
+        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+      </div>
+  
+      <div class="dropdown">
+        <div class="links">
+          <a href="index.html">Home</a>
+          <a href="Achievements.html">Achievements</a>
+          <a href="skills.html">Skills</a>
+          <a href="Coursework.html">Coursework</a>
+          <a href="projects.html">Projects</a>
+          <a href="Experience.html">Experience</a>
+          <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+        </div>
+      </div>
+  </nav>
+
+  <div class="page" data-aos="fade-up">
+    <a href="Experience.html" class="back-button">← Back to Experience</a>
+    <div class="header" data-aos="fade-down">
+      <h2>Task Management App</h2>
+      <p>May 2021 | Flutter, FirebaseAuth, Firestore</p>
+    </div>
+    <div class="experience-details-container">
+        <div class="experience-video" data-aos="fade-right">
+          <video src="media/2021-05-22 19-41-24.mp4" controls></video>
+        </div>
+    <div class="features">
+      <div class="feature" data-aos="fade-up">
+        <strong>Remote Notes Storage</strong>
+        Users can create, read, update, and delete notes stored in Firestore—accessible from any device in real time.
+      </div>
+      <div class="feature" data-aos="fade-up" data-aos-delay="100">
+        <strong>Secure Authentication</strong>
+        Integrated FirebaseAuth to allow sign-up and sign-in flows (email/password), ensuring each user’s notes remain private.
+      </div>
+      <div class="feature" data-aos="fade-up" data-aos-delay="200">
+        <strong>Real-Time Sync</strong>
+        Firestore listeners push updates instantly to the UI, so your notes list refreshes live as you add or edit tasks.
+      </div>
+      <div class="feature" data-aos="fade-up" data-aos-delay="300">
+        <strong>Responsive UI</strong>
+        Built with Flutter’s Material widgets and adaptive layouts for smooth performance on both Android and iOS.
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script> AOS.init({ once: true }); </script>
+</body>
+</html>

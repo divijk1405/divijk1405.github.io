@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amazon Sales Analysis | Divij Kathuria</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+  <style>
+     body {
+      background-color: #fff6ed;
+    }
+    .project-section {
+      padding: 2rem 2rem;
+      background: transparent;
+      margin: 0 auto;
+      position: relative;
+      max-width: 1200px;
+    }
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: -130px;
+      background-color: #fff3e6;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      color: #444;
+      transition: all 0.3s ease;
+    }
+    .back-button:hover {
+      transform: translateX(-5px);
+      background-color: #ffe5cc;
+    }
+    .project-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .project-header h2 {
+      font-size: 2rem;
+      margin: 0;
+    }
+    .project-header p {
+      font-style: italic;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+    .project-video {
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+    .project-video img {
+      max-width: 40%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.25s ease;
+    }
+    .project-video img:hover {
+      transform: scale(1.03);
+    }
+    .feature-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    @media(min-width:600px) {
+      .feature-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .interactive-box {
+      background-color: #fff;
+      padding: 1.2rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+    .interactive-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      background-color: #fdf6ee;
+    }
+    .interactive-box.active {
+      background-color: #fff3e6;
+      border: 2px solid #d28500;
+    }
+
+    /* ===== Lightbox (modal) ===== */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 1200;
+      padding: 2rem;
+    }
+    .lightbox[aria-hidden="false"] { display:flex; }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 1100px;
+      width: 100%;
+      max-height: 95%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      outline: none;
+    }
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 95vh;
+      border-radius: 12px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+      object-fit: contain;
+      display: block;
+      background: #111;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: #fff;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox-close:hover { transform: scale(1.04); background: #fff3e6; }
+
+    @media (max-width: 640px) {
+      .project-video img { max-width: 70%; }
+      .lightbox-close { width: 36px; height: 36px; top: -6px; right: -6px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container" style="justify-content: center; gap: 4rem;">
+      <div class="logo"><span></span></div>
+      <div class="links" style="display: flex; gap: 3rem; align-items: center;">
+        <a href="index.html">Home</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="skills.html">Skills</a>
+        <a href="Coursework.html">Coursework</a>
+        <a href="projects.html">Projects</a>
+        <a href="experience.html">Experience</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="project-section" data-aos="fade-up">
+    <a class="back-button" href="projects.html">&#8592; Back to Projects</a>
+
+    <div class="project-header" data-aos="fade-down">
+      <h2>Amazon Sales Analysis</h2>
+      <p>April 2024 | R, ggplot2, dplyr</p>
+    </div>
+
+    <div class="project-video" data-aos="fade-right" style="text-align:center;">
+     
+      <img id="chartThumb" src="media/Screenshot 2025-08-01 at 6.43.03 PM.png"
+           alt="Sales by category bar chart" />
+    </div>
+
+    <div class="feature-container">
+      <div class="interactive-box" onclick="this.classList.toggle('active')" data-aos="fade-up">
+        <strong>Correlation Insight:</strong> Analyzed 1,000+ products to uncover a 10.2% positive correlation between customer ratings and sales volume.
+      </div>
+      <div class="interactive-box" onclick="this.classList.toggle('active')" data-aos="fade-up" data-aos-delay="100">
+        <strong>Category Trends:</strong> Visualized sales across 9 product categories, highlighting top performers.
+      </div>
+      <div class="interactive-box" onclick="this.classList.toggle('active')" data-aos="fade-up" data-aos-delay="200">
+        <strong>Rich Visualizations:</strong> Created bar charts, scatterplots, and histograms to showcase sales distributions.
+      </div>
+      <div class="interactive-box" onclick="this.classList.toggle('active')" data-aos="fade-up" data-aos-delay="300">
+        <strong>Actionable Findings:</strong> Products with higher customer ratings drove up to 40% more sales.
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox modal -->
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Chart preview">
+    <div class="lightbox-content" role="document">
+      <button id="lbClose" class="lightbox-close" aria-label="Close preview">×</button>
+      <img id="lightboxImg" src="" alt="Expanded chart" />
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true });
+
+    const thumb = document.getElementById('chartThumb');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lbClose = document.getElementById('lbClose');
+
+    function openLightbox(src, alt) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || 'Expanded chart';
+      lightbox.setAttribute('aria-hidden', 'false');
+      // prevent background scrolling while open
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+      // focus the close button for accessibility
+      lbClose.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.setAttribute('aria-hidden', 'true');
+      // clear src to free memory (optional)
+      lightboxImg.src = '';
+      // re-enable scrolling
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+    }
+
+    if (thumb) {
+      thumb.addEventListener('click', () => {
+        openLightbox(thumb.src, thumb.alt);
+      });
+    }
+
+    // close handlers
+    lbClose.addEventListener('click', closeLightbox);
+
+    // click outside content closes
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    // pressing Esc closes modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.getAttribute('aria-hidden') === 'false') {
+        closeLightbox();
+      }
+    });
+
+    // prevent clicks on the image from bubbling up to overlay
+    document.getElementById('lightboxImg').addEventListener('click', (e) => e.stopPropagation());
+  </script>
+</body>
+</html>
