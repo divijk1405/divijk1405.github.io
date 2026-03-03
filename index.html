@@ -1,106 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
-  <title>Divij Kathuria | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-</head>
-<body>
-  <nav>
-    <div class="nav-container" style="justify-content: center; gap: 4rem;">
-      <div class="logo" data-aos="zoom-in" data-aos-duration="1000"><span></span></div>
-      <div class="links" style="display: flex; gap: 3rem; align-items: center;">
-        <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-          <a href="#">Home</a>
-        </div>
-        <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-          <a href="Achievements.html">Achievements</a>
-        </div>
-        <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-          <a href="skills.html">Skills</a>
-        </div>
-        <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-          <a href="Coursework.html">Coursework</a>
-        </div>
-        <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
-          <a href="projects.html">Projects</a>
-        </div>
-        <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
-          <a href="experience.html">Experience</a>
-        </div>
-          
-        </div>
-      </div>
-      <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
-    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Divij Kathuria</title>
+    <link rel="stylesheet" href="style.css" />
 
-    <div class="dropdown">
-      <div class="links">
-        <a href="#">Home</a>
-        <a href="Achievements.html">Achievements</a>
-        <a href="skills.html">Skills</a>
-        <a href="Coursework.html">Coursework</a>
-        <a href="projects.html">Projects</a>
-        <a href="experience.html">Experience</a>
-        <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
-      </div>
-    </div>
-  </nav>
+    <!-- Optional font (clean + modern) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-  <section>
-    <div class="main-container">
-      <div class="image" data-aos="zoom-in-right" data-aos-duration="2500">
-        <img src="Divij.png" alt="Divij Kathuria" style="max-width: 400px; height: auto; border-radius: 12px; box-shadow: 0 0 20px rgba(0,0,0,0.2);">
-      </div>
-      <div class="content">
-        <h1 data-aos="fade-left" data-aos-duration="1000" data-aos-delay="800">Hey I'm <span>Divij Kathuria</span></h1>
-        <div class="typewriter" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="900">
-          I'm a <span class="animated-role" style="color: rgb(109,67,0); font-weight: 600;">Software Developer</span>
-        </div>
-        <p data-aos="flip-up" data-aos-duration="1000" data-aos-delay="1000">
-          Computer Science student at UW–Madison passionate Achievements creating intuitive digital Experiences.
-          Experienced in building scalable mobile apps, analysing data, implementing modern UI/UX practices, and applying machine learning to real-world problems. In short, I like solving problems but with tech.
-        </p>
-        <div class="social-links" data-aos="flip-down" data-aos-duration="1000" data-aos-delay="1200">
-          <a href="https://github.com/divijk145" target="_blank"><i class="fa-brands fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/divij-kathuria-98b9b4291/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="mailto:divijxx1405@gmail.com">
-            <i class="fa-solid fa-envelope"></i>
-          </a>
-          <a href="tel:+13129181708">
-            <i class="fa-solid fa-phone"></i>
-          </a>
-        </div>
-        <a href="DivijCsResume.pdf" download><button>Download CV</button></a>
-      </div>
-    </div>
-  </section>
+  <!-- Custom cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
 
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
-    const roles = ["Software Developer", "Mobile App Developer", "UI/UX Enthusiast", "Data Analyst"];
-    let index = 0;
-    const span = document.querySelector('.animated-role');
-    function rotateRoles() {
-      span.textContent = roles[index];
-      index = (index + 1) % roles.length;
+    // Add wave-hover to interactive elements automatically (after DOM exists)
+    const waveTargets = document.querySelectorAll("a, button, .pill, .btn");
+    waveTargets.forEach((el) => el.classList.add("wave-hover"));
+
+    // Cursor follow (smooth)
+    const dot = document.getElementById("cursorDot");
+    let mouseX = 0,
+      mouseY = 0;
+    let dotX = 0,
+      dotY = 0;
+
+    window.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      dot.style.opacity = "1";
+    });
+
+    function animate() {
+      dotX += (mouseX - dotX) * 0.22;
+      dotY += (mouseY - dotY) * 0.22;
+      dot.style.transform = `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`;
+      requestAnimationFrame(animate);
     }
-    rotateRoles();
-    setInterval(rotateRoles, 2500);
+    animate();
+
+    // Grow cursor on interactive elements
+    const interactiveSelector =
+      "a, button, .btn, .pill, input, textarea, select, label";
+    document.addEventListener("mouseover", (e) => {
+      if (e.target.closest(interactiveSelector))
+        dot.classList.add("cursor-active");
+    });
+    document.addEventListener("mouseout", (e) => {
+      if (e.target.closest(interactiveSelector))
+        dot.classList.remove("cursor-active");
+    });
+
+    // Slight cursor change when hovering normal text
+    const textSelector = "p, h1, h2, h3, h4, h5, h6, li, span, strong, em";
+    document.addEventListener("mouseover", (e) => {
+      const t = e.target.closest(textSelector);
+      if (t && !t.closest(interactiveSelector))
+        dot.classList.add("cursor-text");
+    });
+    document.addEventListener("mouseout", (e) => {
+      const t = e.target.closest(textSelector);
+      if (t) dot.classList.remove("cursor-text");
+    });
+
+    // Hide cursor when leaving the window
+    window.addEventListener("mouseleave", () => (dot.style.opacity = "0"));
   </script>
-  <script>
-    AOS.init({ offset: 0 });
-  </script>
-  <script>
-    function hamburg() {
-      document.querySelector(".dropdown").style.transform = "translateY(0px)";
-    }
-    function cancel() {
-      document.querySelector(".dropdown").style.transform = "translateY(-500px)";
-    }
-  </script>
-</body>
+
+  <body>
+    <!-- Top Nav -->
+    <header class="topbar">
+      <div class="container nav">
+        <a class="brand" href="index.html">divij.k</a>
+
+        <nav class="navlinks">
+          <!-- anchor scroll instead of separate About page -->
+          <a class="pill" href="#about">About</a>
+          <a class="pill" href="projects.html">Projects</a>
+          <a class="pill" href="experience.html">Experience</a>
+          <a class="pill" href="skills.html">Skills</a>
+          <a class="pill" href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="container">
+      <!-- HERO CARD -->
+      <section class="card hero-card">
+        <div class="hero-grid">
+          <div class="hero-photoWrap">
+            <img class="hero-photo" src="Divij.png" alt="Divij Kathuria" />
+          </div>
+
+          <div class="hero-content">
+            <div class="hero-kicker">Software Engineer • Full-stack • Data</div>
+
+            <h1 class="hero-title">
+              Let’s build something that feels effortless.
+            </h1>
+
+            <p class="hero-lead">
+              I’m Divij — a Computer &amp; Data Science student at UW-Madison. I
+              like shipping crisp UIs, solid systems, and projects that actually
+              get used.
+            </p>
+
+            <p class="hero-sub">
+              I’m into <strong>frontend + full-stack</strong>, dashboards, and
+              AI-powered workflows — with a focus on clarity, speed, and polish.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn primary" href="contact.html">Get in touch</a>
+              <a
+                class="btn"
+                href="DivijCsResume.pdf"
+                target="_blank"
+                rel="noopener"
+                >Resume (PDF)</a
+              >
+            </div>
+
+            <div class="hero-meta">
+              <div class="meta-row">
+                <span class="meta-label">Currently</span>
+                <span class="meta-value"
+                  >building &amp; applying for SWE roles</span
+                >
+              </div>
+
+              <div class="meta-row">
+                <span class="meta-label">Socials</span>
+                <span class="meta-links">
+                  <!-- replace these with your real links -->
+                  <a href="https://github.com/" target="_blank" rel="noopener"
+                    >GitHub</a
+                  >
+                  <a
+                    href="https://www.linkedin.com/"
+                    target="_blank"
+                    rel="noopener"
+                    >LinkedIn</a
+                  >
+                  <a href="mailto:divijxx1405@gmail.com">Email</a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT SECTION (on homepage) -->
+      <section id="about" class="section">
+        <div class="section-header">
+          <h2 class="section-title">About</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="card about-card">
+            <p class="about-p">
+              I care about <strong>clean product thinking</strong>: what’s the
+              user trying to do, what’s the shortest path, and how do we make it
+              feel smooth?
+            </p>
+
+            <p class="about-p">
+              I’ve worked across data analysis, full-stack apps, and mobile
+              projects — and I’m happiest when I’m shipping end-to-end.
+            </p>
+
+            <p class="about-p">
+              Outside of code: gym, watches, and building things with my
+              co-founders.
+            </p>
+
+            <div class="about-actions">
+              <!-- No "Read more" since you don’t want About page -->
+              <a class="btn" href="experience.html">Experience</a>
+              <a class="btn" href="projects.html">Projects</a>
+            </div>
+          </div>
+
+          <div class="card highlights-card">
+            <h3 class="card-title">Quick highlights</h3>
+
+            <div class="mini-card">
+              <div class="mini-title">Full-stack projects</div>
+              <div class="mini-sub">
+                React, Node, Supabase, APIs, auth, and clean UI components.
+              </div>
+            </div>
+
+            <div class="mini-card">
+              <div class="mini-title">Data analysis</div>
+              <div class="mini-sub">
+                SQL, Python, dashboards, and storytelling with numbers.
+              </div>
+            </div>
+
+            <div class="mini-card">
+              <div class="mini-title">Mobile</div>
+              <div class="mini-sub">
+                React Native + Flutter foundations, UX details, and smooth
+                flows.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-inner">
+          <div class="footer-left">
+            © <span id="year"></span> Divij Kathuria
+          </div>
+          <div class="footer-right">
+            <a href="mailto:divijxx1405@gmail.com">divijxx1405@gmail.com</a>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>

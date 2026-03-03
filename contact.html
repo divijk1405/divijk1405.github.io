@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Divij Kathuria</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Get in touch with Divij Kathuria." />
+</head>
+<body data-page="contact">
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html">divij.k</a>
+    <div class="nav-links">
+      <a class="pill" data-nav="about" href="about.html">About</a>
+      <a class="pill" data-nav="projects" href="projects.html">Projects</a>
+      <a class="pill" data-nav="experience" href="experience.html">Experience</a>
+      <a class="pill" data-nav="skills" href="skills.html">Skills</a>
+      <a class="pill" data-nav="contact" href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // mark active pill
+  (function() {
+    const page = document.body.getAttribute('data-page');
+    document.querySelectorAll('[data-nav]').forEach(a => {
+      if (a.getAttribute('data-nav') === page) a.classList.add('active');
+    });
+  })();
+</script>
+<main class="container page">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Contact</h1>
+      <p class="page-sub">Fastest: email. Happy to do a quick walkthrough of any project.</p>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card prose">
+      <h2 style="margin-top:0">Quick links</h2>
+      <div class="list">
+        <div class="card item" style="box-shadow:none">
+          <h3>Email</h3>
+          <p><a href="mailto:divijkathuria@gmail.com">divijkathuria@gmail.com</a></p>
+        </div>
+        <div class="card item" style="box-shadow:none">
+          <h3>LinkedIn</h3>
+          <p><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">linkedin.com/in/…</a></p>
+        </div>
+        <div class="card item" style="box-shadow:none">
+          <h3>GitHub</h3>
+          <p><a href="https://github.com/" target="_blank" rel="noreferrer">github.com/…</a></p>
+        </div>
+      </div>
+      <p class="page-sub" style="margin-top:10px">
+        If you want, include: role, timeline, and what you want me to build.
+      </p>
+    </div>
+
+    <div class="card prose">
+      <h2 style="margin-top:0">Message</h2>
+      <p class="page-sub">This opens your email client with a prefilled draft.</p>
+      <form id="contactForm">
+        <div style="display:grid; gap:10px;">
+          <input class="pill" style="border-radius:12px; padding:12px;" name="subject" placeholder="Subject" required />
+          <input class="pill" style="border-radius:12px; padding:12px;" name="from" placeholder="Your email" required />
+          <textarea class="pill" style="border-radius:12px; padding:12px; min-height:140px;" name="message" placeholder="Message" required></textarea>
+          <button class="btn primary" type="submit">Send</button>
+        </div>
+      </form>
+      <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e){
+          e.preventDefault();
+          const data = new FormData(e.target);
+          const subject = encodeURIComponent(data.get('subject'));
+          const from = encodeURIComponent(data.get('from'));
+          const message = encodeURIComponent(data.get('message'));
+          const body = `From: ${from}%0D%0A%0D%0A${message}`;
+          window.location.href = `mailto:divijkathuria@gmail.com?subject=${subject}&body=${body}`;
+        });
+      </script>
+    </div>
+  </div>
+</main>
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>
+      <div class="brand">© 2026 Divij Kathuria</div>
+      <small>Built with plain HTML/CSS. Clean, fast, and easy to maintain.</small>
+    </div>
+    <div class="mini">
+      <small id="footerVersion">v2026.03</small>
+      <small id="footerTZ">—</small>
+      <small><a href="mailto:divijkathuria@gmail.com">divijkathuria@gmail.com</a></small>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    // Timezone line like Bettina's site
+    const d = new Date();
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'Local';
+    const time = d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+    document.getElementById('footerTZ').textContent = time + ' • ' + tz;
+  })();
+</script>
+</body>
+</html>

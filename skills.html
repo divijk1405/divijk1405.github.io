@@ -1,203 +1,103 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Skills | Divij Kathuria</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skills — Divij Kathuria</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <style>
-    body {
-      background-color: #fff6ed;
-    }
-    .skills-section {
-      padding: 3rem 1rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      background-color: transparent;
-      text-align: center;
-    }
-    .skills-header h2 {
-      margin-bottom: 0.5rem;
-    }
-    .skills-header p {
-      margin-bottom: 3rem;
-      color: #555;
-      font-style: bolc;
-    }
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(200px, 1fr));
-      gap: 1.5rem;
-      
-    }
-    .skill-card {
-      background-color: #fff;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: left;
-    }
-    .skill-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(109,67,0,0.3);
-      background-color: #fdf6ee;
-    }
-    .skill-card h3 {
-      margin-top: 0;
-      color: #6d4300;
-    }
-
-    /* —— Progress Bars —— */
-    .proficiency-bar {
-      margin: 0.75rem 0;
-    }
-    .proficiency-bar label {
-      display: block;
-      font-weight: 500;
-      margin-bottom: 0.3rem;
-    }
-    .proficiency-bar .bar {
-      width: 100%;
-      background: #eee;
-      border-radius: 8px;
-      overflow: hidden;
-      height: 10px;
-    }
-    .proficiency-bar .filled {
-      height: 100%;
-      background: rgb(109,67,0);
-    }
-
-    @media (max-width:600px) {
-      .skills-section {
-        padding: 2rem 0.5rem;
-      }
-    }
-  </style>
+  <meta name="description" content="Skills and tools used by Divij Kathuria." />
 </head>
-<body>
-  <nav>
-    <div class="nav-container" style="justify-content: center; gap: 4rem;">
-      <div class="logo" data-aos="zoom-in" data-aos-duration="1000"><span></span></div>
-      <div class="links" style="display: flex; gap: 3rem; align-items: center;">
-        <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-          <a href="index.html">Home</a>
-        </div>
-        <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-          <a href="Achievements.html">Achievements</a>
-        </div>
-        <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-          <a href="skills.html">Skills</a>
-        </div>
-        <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-          <a href="Coursework.html">Coursework</a>
-        </div>
-        <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
-          <a href="projects.html">Projects</a>
-        </div>
-        <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
-          <a href="experience.html">Experience</a>
-        </div>
-      </div>
-      <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+<body data-page="skills">
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html">divij.k</a>
+    <div class="nav-links">
+      <a class="pill" data-nav="about" href="about.html">About</a>
+      <a class="pill" data-nav="projects" href="projects.html">Projects</a>
+      <a class="pill" data-nav="experience" href="experience.html">Experience</a>
+      <a class="pill" data-nav="skills" href="skills.html">Skills</a>
+      <a class="pill" data-nav="contact" href="contact.html">Contact</a>
     </div>
-    <div class="dropdown">
-      <div class="links">
-        <a href="index.html">Home</a>
-        <a href="Achievements.html">Achievements</a>
-        <a href="skills.html">Skills</a>
-        <a href="Coursework.html">Coursework</a>
-        <a href="projects.html">Projects</a>
-        <a href="experience.html">Experience</a>
-        <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
-      </div>
+  </div>
+</nav>
+
+<script>
+  // mark active pill
+  (function() {
+    const page = document.body.getAttribute('data-page');
+    document.querySelectorAll('[data-nav]').forEach(a => {
+      if (a.getAttribute('data-nav') === page) a.classList.add('active');
+    });
+  })();
+</script>
+<main class="container page">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Skills</h1>
+      <p class="page-sub">Tools I’m comfortable with — and what I’m currently learning.</p>
     </div>
-  </nav>
+  </div>
 
-  <section class="skills-section">
-    <div class="skills-header" data-aos="fade-down">
-      <h2>My Skills</h2>
-      <p>A showcase of my core technical proficiencies and tools.</p>
+  <div class="grid-2">
+    <div class="card prose">
+      <h2 style="margin-top:0">Frontend</h2>
+      <div class="tags">
+        <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span><span class="tag">Vite</span>
+        <span class="tag">UI Systems</span><span class="tag">Figma</span>
+      </div>
+      <p style="margin-top:12px">I optimize for clear hierarchy, responsive layouts, and “feels premium” interactions.</p>
     </div>
-    <div class="skills-grid">
-      <div class="skill-card" data-aos="fade-up" data-aos-duration="800">
-        <h3>Languages</h3>
-        <p>JavaScript, Python, C++, Java, SQL</p>
-      </div>
 
-      <div class="skill-card" data-aos="fade-up" data-aos-duration="1000">
-        <h3>Frameworks & Libraries</h3>
-        <p>React, React Native, Node.js, Express, Flutter</p>
+    <div class="card prose">
+      <h2 style="margin-top:0">Backend</h2>
+      <div class="tags">
+        <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">REST APIs</span><span class="tag">Supabase</span>
+        <span class="tag">Auth</span><span class="tag">SQL</span>
       </div>
-
-      <div class="skill-card" data-aos="fade-up" data-aos-duration="1200">
-        <h3>Tools & Technologies</h3>
-        <p>Git, Postman, Firebase, MongoDB, Figma</p>
-      </div>
-
-      <div class="skill-card" data-aos="fade-up" data-aos-duration="1400">
-        <h3>Proficiency Levels</h3>
-        <div class="proficiency-bar">
-          <label>JavaScript: 90%</label>
-          <div class="bar"><div class="filled" style="width:90%"></div></div>
-        </div>
-        <div class="proficiency-bar">
-          <label>Python: 80%</label>
-          <div class="bar"><div class="filled" style="width:80%"></div></div>
-        </div>
-        <div class="proficiency-bar">
-          <label>SQL: 80%</label>
-          <div class="bar"><div class="filled" style="width:80%"></div></div>
-        </div>
-        <div class="proficiency-bar">
-          <label>Java: 70%</label>
-          <div class="bar"><div class="filled" style="width:70%"></div></div>
-        </div>
-        <div class="proficiency-bar">
-          <label>C++: 60%</label>
-          <div class="bar"><div class="filled" style="width:60%"></div></div>
-        </div>
-      </div>
-
-      <div class="skill-card" data-aos="fade-up" data-aos-duration="1600">
-        <h3>Soft Skills</h3>
-        <ul>
-          <li>Agile & Scrum Collaboration</li>
-    <li>Effective Communication</li>
-    <li>Problem Solving</li>
-    <li>Code Review & Mentoring</li>
-    <li>Adaptability & Learning Agility</li>
-    <li>Time Management & Task Prioritization</li>
-    <li>Attention to Detail & Quality Focus</li>
-    <li>Creative Thinking & Innovation</li>
-    <li>Leadership & Conflict Resolution</li>
-        </ul>
-      </div>
-
-    
-    <div class="skill-card" data-aos="fade-up" data-aos-duration="1800">
-      <h3>Currently Learning</h3>
-      <ul>
-        <li>AWS (Cloud Practitioner)</li>
-        <li>Power BI</li>
-        <li>Microsoft Project (PM Tools)</li>
-        <li>Advanced Excel</li>
-        <li>BigQuery</li>
-      </ul>
+      <p style="margin-top:12px">Comfortable building clean endpoints, integrating APIs, and shipping full features.</p>
     </div>
-  </section>
 
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    function hamburg() {
-      document.querySelector(".dropdown").style.transform = "translateY(0)";
-    }
-    function cancel() {
-      document.querySelector(".dropdown").style.transform = "translateY(-500px)";
-    }
-    AOS.init({ offset: 100 });
-  </script>
+    <div class="card prose">
+      <h2 style="margin-top:0">Data / ML</h2>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Visualization</span>
+        <span class="tag">Deep Learning</span>
+      </div>
+      <p style="margin-top:12px">I like making datasets tell a story — and turning that into product decisions.</p>
+    </div>
+
+    <div class="card prose">
+      <h2 style="margin-top:0">Currently learning</h2>
+      <div class="tags">
+        <span class="tag">Databases</span><span class="tag">System design</span><span class="tag">Performance</span><span class="tag">Testing</span>
+      </div>
+      <p style="margin-top:12px">Leaning into fundamentals to ship faster with fewer surprises.</p>
+    </div>
+  </div>
+</main>
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>
+      <div class="brand">© 2026 Divij Kathuria</div>
+      <small>Built with plain HTML/CSS. Clean, fast, and easy to maintain.</small>
+    </div>
+    <div class="mini">
+      <small id="footerVersion">v2026.03</small>
+      <small id="footerTZ">—</small>
+      <small><a href="mailto:divijkathuria@gmail.com">divijkathuria@gmail.com</a></small>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    // Timezone line like Bettina's site
+    const d = new Date();
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'Local';
+    const time = d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+    document.getElementById('footerTZ').textContent = time + ' • ' + tz;
+  })();
+</script>
 </body>
 </html>
