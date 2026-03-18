@@ -20,10 +20,11 @@ function FadeIn({ children, delay = 0, className = '' }) {
 }
 
 const skills = [
-  'React', 'TypeScript', 'Python', 'React Native',
-  'Node.js', 'Next.js', 'Flutter', 'Dart',
-  'Tailwind CSS', 'PostgreSQL', 'TensorFlow',
-  'Pandas', 'OpenAI API', 'AWS', 'Figma', 'Git',
+  'Python', 'TypeScript', 'Java', 'JavaScript', 'SQL', 'Kotlin',
+  'React', 'Node.js', 'Spring Boot', 'React Native',
+  'D3.js', 'Tailwind CSS', 'WebSockets', 'GraphQL',
+  'PostgreSQL', 'Redis', 'Firebase',
+  'AWS', 'Docker', 'TensorFlow',
 ]
 
 export default function About() {
@@ -58,7 +59,7 @@ export default function About() {
             <p className="mt-4 text-muted text-base leading-relaxed">
               I like shipping crisp UIs, solid backends, and AI-powered tools — with a
               relentless focus on clarity, speed, and polish. Currently building
-              SpecMe/ClearClause and seeking SWE roles.
+              CodePad and seeking SWE roles.
             </p>
           </FadeIn>
 

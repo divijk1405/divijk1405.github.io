@@ -115,7 +115,7 @@ export default function Creative() {
       <div className="px-6 lg:px-10 max-w-[1200px] mx-auto">
         <FadeIn>
           <span className="font-mono text-[11px] tracking-[0.2em] text-muted uppercase">
-            003 — Craft
+            004 — Craft
           </span>
         </FadeIn>
 

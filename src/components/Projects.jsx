@@ -21,87 +21,93 @@ function FadeIn({ children, delay = 0, className = '' }) {
 }
 
 function ProjectRow({ project, isLast }) {
-  const [hovered, setHovered] = useState(false)
+  const [open, setOpen] = useState(false)
 
   return (
-    <motion.div
-      onHoverStart={() => setHovered(true)}
-      onHoverEnd={() => setHovered(false)}
-      className={`relative border-t border-border ${isLast ? 'border-b' : ''}`}
-    >
-      <motion.div
-        animate={{ backgroundColor: hovered ? 'rgba(201,169,110,0.03)' : 'rgba(0,0,0,0)' }}
-        transition={{ duration: 0.25 }}
-        className="flex items-start gap-5 py-5 px-3 -mx-3 rounded-lg"
+    <div className={`border-t border-border ${isLast ? 'border-b' : ''}`}>
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full text-left"
       >
-        {/* Number */}
-        <span className="font-mono text-[11px] text-muted/50 w-7 pt-1 flex-shrink-0 select-none">
-          {project.id}
-        </span>
+        <motion.div
+          animate={{ backgroundColor: open ? 'rgba(201,169,110,0.04)' : 'rgba(0,0,0,0)' }}
+          transition={{ duration: 0.2 }}
+          className="flex items-center gap-5 py-5 px-3 -mx-3 rounded-lg"
+        >
+          {/* Number */}
+          <span className="font-mono text-[11px] text-muted/40 w-7 flex-shrink-0 select-none">
+            {project.id}
+          </span>
 
-        {/* Content */}
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-4 flex-wrap">
-            <motion.span
-              animate={{ color: hovered ? '#c9a96e' : '#eee9de' }}
-              transition={{ duration: 0.2 }}
-              className="font-sans font-semibold text-base md:text-lg leading-snug"
-            >
-              {project.title}
-            </motion.span>
-            <span className="font-mono text-[11px] text-muted/50">
-              {project.role}
-            </span>
-            <span className="font-mono text-[11px] text-muted/30 ml-auto hidden md:block">
-              {project.year}
-            </span>
+          {/* Title + role */}
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-3 flex-wrap">
+              <span
+                className={`font-sans font-semibold text-base md:text-lg leading-snug transition-colors duration-200 ${
+                  open ? 'text-accent' : 'text-text'
+                }`}
+              >
+                {project.title}
+              </span>
+              {project.status === 'building' && (
+                <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full border border-accent/30 bg-accent/5">
+                  <span className="w-1 h-1 rounded-full bg-accent animate-pulse" />
+                  <span className="font-mono text-[9px] text-accent tracking-widest uppercase">
+                    Building
+                  </span>
+                </span>
+              )}
+              <span className="font-mono text-[11px] text-muted/40">
+                {project.role}
+              </span>
+            </div>
           </div>
 
-          <AnimatePresence>
-            {hovered && (
-              <motion.p
-                initial={{ height: 0, opacity: 0, marginTop: 0 }}
-                animate={{ height: 'auto', opacity: 1, marginTop: 8 }}
-                exit={{ height: 0, opacity: 0, marginTop: 0 }}
-                transition={{ duration: 0.28, ease }}
-                className="font-sans text-sm text-muted leading-relaxed overflow-hidden"
-              >
-                {project.desc}
-              </motion.p>
-            )}
-          </AnimatePresence>
+          {/* Year */}
+          <span className="font-mono text-[11px] text-muted/30 hidden md:block flex-shrink-0">
+            {project.year}
+          </span>
 
-          {/* Tags — always visible on mobile, on hover on desktop */}
-          <motion.div
-            animate={{ opacity: hovered ? 1 : 0.4 }}
+          {/* Toggle icon */}
+          <motion.span
+            animate={{ rotate: open ? 45 : 0, color: open ? '#c9a96e' : '#6b645c' }}
             transition={{ duration: 0.2 }}
-            className="mt-3 flex flex-wrap gap-1.5 md:opacity-40 md:group-hover:opacity-100"
+            className="text-xl flex-shrink-0 ml-1 leading-none"
           >
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="font-mono text-[10px] text-muted border border-border/70 rounded-full px-2.5 py-1"
-              >
-                {tag}
-              </span>
-            ))}
-          </motion.div>
-        </div>
+            +
+          </motion.span>
+        </motion.div>
+      </button>
 
-        {/* Arrow */}
-        <motion.span
-          animate={{
-            x: hovered ? 3 : 0,
-            opacity: hovered ? 1 : 0.2,
-            color: hovered ? '#c9a96e' : '#6b645c',
-          }}
-          transition={{ duration: 0.2 }}
-          className="text-xl pt-0.5 flex-shrink-0 ml-1"
-        >
-          →
-        </motion.span>
-      </motion.div>
-    </motion.div>
+      {/* Expandable content */}
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.32, ease }}
+            className="overflow-hidden"
+          >
+            <div className="px-3 pb-5 ml-12">
+              <p className="font-sans text-sm text-muted leading-relaxed mb-4">
+                {project.desc}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="font-mono text-[10px] text-muted border border-border/70 rounded-full px-2.5 py-1"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   )
 }
 
@@ -110,7 +116,7 @@ export default function Projects() {
     <section id="work" className="py-32 px-6 lg:px-10 max-w-[1200px] mx-auto">
       <FadeIn>
         <span className="font-mono text-[11px] tracking-[0.2em] text-muted uppercase">
-          002 — Selected Work
+          003 — Selected Work
         </span>
       </FadeIn>
 
@@ -125,7 +131,7 @@ export default function Projects() {
         </FadeIn>
         <FadeIn delay={0.12}>
           <p className="font-sans text-sm text-muted pb-1">
-            Hover to explore
+            Click to expand
           </p>
         </FadeIn>
       </div>

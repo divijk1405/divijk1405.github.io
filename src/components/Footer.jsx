@@ -44,7 +44,7 @@ export default function Footer() {
           transition={{ duration: 0.6 }}
           className="font-mono text-[11px] tracking-[0.2em] text-muted uppercase block mb-10"
         >
-          004 — Contact
+          005 — Contact
         </motion.span>
 
         {/* Big CTA headline */}
