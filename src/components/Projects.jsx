@@ -90,9 +90,20 @@ function ProjectRow({ project, isLast }) {
             className="overflow-hidden"
           >
             <div className="px-3 pb-5 ml-12">
-              <p className="font-sans text-sm text-muted leading-relaxed mb-4">
-                {project.desc}
-              </p>
+              {project.bullets ? (
+                <ul className="flex flex-col gap-2 mb-4">
+                  {project.bullets.map((b, i) => (
+                    <li key={i} className="flex gap-3 text-sm text-muted leading-relaxed">
+                      <span className="text-accent/50 mt-0.5 flex-shrink-0">–</span>
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="font-sans text-sm text-muted leading-relaxed mb-4">
+                  {project.desc}
+                </p>
+              )}
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span
