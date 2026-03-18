@@ -11,8 +11,8 @@ const nameVariants = {
 }
 
 const wordVariant = {
-  hidden: { y: '110%', opacity: 0 },
-  show: { y: '0%', opacity: 1, transition: { duration: 0.9, ease } },
+  hidden: { y: 40, opacity: 0 },
+  show: { y: 0, opacity: 1, transition: { duration: 0.9, ease } },
 }
 
 export default function Hero() {
@@ -44,24 +44,20 @@ export default function Hero() {
           animate="show"
           className="flex-1"
         >
-          <div className="overflow-hidden leading-none">
-            <motion.h1
-              variants={wordVariant}
-              className="font-display italic font-light text-text leading-[0.9] tracking-tight select-none"
-              style={{ fontSize: 'clamp(70px, 15.5vw, 196px)' }}
-            >
-              Divij
-            </motion.h1>
-          </div>
-          <div className="overflow-hidden leading-none">
-            <motion.h1
-              variants={wordVariant}
-              className="font-display font-black text-text leading-[0.9] tracking-tight select-none"
-              style={{ fontSize: 'clamp(70px, 15.5vw, 196px)' }}
-            >
-              Kathuria
-            </motion.h1>
-          </div>
+          <motion.h1
+            variants={wordVariant}
+            className="font-display italic font-light text-text leading-[0.85] tracking-tight select-none block"
+            style={{ fontSize: 'clamp(70px, 15.5vw, 196px)' }}
+          >
+            Divij
+          </motion.h1>
+          <motion.h1
+            variants={wordVariant}
+            className="font-display font-black text-text leading-[0.9] tracking-tight select-none block"
+            style={{ fontSize: 'clamp(70px, 15.5vw, 196px)' }}
+          >
+            Kathuria
+          </motion.h1>
         </motion.div>
 
         {/* Photo — floats to the right, lives inside the name block visually */}
